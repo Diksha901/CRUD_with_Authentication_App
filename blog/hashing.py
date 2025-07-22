@@ -1,10 +1,3 @@
-# from passlib.context import CryptContext
-# pwd_context=CryptContext(schemes=['bcrypt'],deprecated='auto')
-# class Hash:
-#     def encryptPass(pwd):
-#         return pwd_context.hash(pwd)
-#     def verify(hashed_password,plain_password):
-#         return pwd_context.verify(hashed_password,plain_password)
 from passlib.context import CryptContext
 
 pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
