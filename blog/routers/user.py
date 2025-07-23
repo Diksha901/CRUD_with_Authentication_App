@@ -6,7 +6,7 @@ from ..oauth2 import get_current_user
 from ..hashing import hash_pwd 
 user_router=APIRouter(prefix='/user',tags=['Users'])
 @user_router.post('/create',response_model=schemas.ShowUser,status_code=status.HTTP_201_CREATED)
-def create_user(user: schemas.UserIn, db: Session = Depends(get_db),current_user:models.User=Depends(get_current_user)):
+def create_user(user: schemas.UserIn, db: Session = Depends(get_db)):
     hashed_password = hash_pwd(user.password)
     user_data = user.model_dump()
     user_data['password'] = hashed_password
